@@ -54,8 +54,8 @@ public class MerController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(ModelMap model, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String merName = new String(request.getParameter("merName").getBytes("IOS-8859-1"), "utf-8");
-		String passWord = new String(request.getParameter("passWord").getBytes("IOS-8859-1"), "utf-8");
+		String merName = request.getParameter("merName");
+		String passWord =  request.getParameter("passWord"); 
 		Merchant merchant = merService.login(merName);
 		if (merchant != null && merchant.equals(passWord)) {
 			return "main";

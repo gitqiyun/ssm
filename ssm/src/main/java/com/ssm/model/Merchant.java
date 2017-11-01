@@ -1,7 +1,13 @@
 package com.ssm.model;
 
-public class Merchant {
+import java.io.Serializable;
 
+public class Merchant  implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int merId;
 	private String merNo;
 	private String merName;

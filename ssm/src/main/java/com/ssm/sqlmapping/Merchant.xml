@@ -3,12 +3,16 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssm.dao.MerchantDao">
-	<insert id="register" parameterType="Merchant">
+
+ 	<!-- 缓存类配置 -->
+    <cache type="com.ssm.redis.RedisCache" />
+    
+	<insert id="register" parameterType="com.ssm.model.Merchant">
 		insert into merchant(merNo,merName,passWord) 
 		values(#{merNo},#{merName},#{passWord})  
 	</insert>
 	
-	<select id="selectMerByName" parameterType="java.lang.String" resultType="Merchant">
+	<select id="selectMerByName" parameterType="java.lang.String" resultType="com.ssm.model.Merchant">
 		select * from merchant where merName=#{merName}
 	</select>
 
