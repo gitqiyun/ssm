@@ -7,6 +7,7 @@ import redis.clients.jedis.JedisPoolConfig;
 public class JedisUtil {
 	  private static String ADDR = "localhost";
 	    private static int PORT = 6379;
+	    //redis默认不需要密码，若设置密码可以在config中设置requirepass的值
 	    private static String AUTH = "admin";
 	    
 	    private static int MAX_ACTIVE = 1024;
@@ -27,7 +28,8 @@ public class JedisUtil {
 	            config.setMaxIdle(MAX_IDLE);
 	            config.setMaxWaitMillis(MAX_WAIT);
 	            config.setTestOnBorrow(TEST_ON_BORROW);
-	            jedisPool = new JedisPool(config,ADDR,PORT,TIMEOUT,AUTH);
+	            /*jedisPool = new JedisPool(config,ADDR,PORT,TIMEOUT,AUTH);*/
+	           jedisPool = new JedisPool(config,ADDR,PORT,TIMEOUT);
 	        }catch (Exception e) {
 	            e.printStackTrace();
 	        }

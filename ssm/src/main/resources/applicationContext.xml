@@ -43,7 +43,7 @@
     <bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" >
         <property name="hostName" value="${redis.host}"></property>
         <property name="port" value="${redis.port}"></property>
-        <property name="password" value="${redis.password}"></property>
+        <!-- <property name="password" value="${redis.password}"></property> 因没有设置密码，所以不需配置-->
         <property name="poolConfig"  ref="poolConfig"></property> 
     </bean>
     

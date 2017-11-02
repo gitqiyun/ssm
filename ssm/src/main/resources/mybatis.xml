@@ -6,8 +6,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<!-- 配置顺序要根据dtd规定，不然会报错，鼠标放在configuration上会显示 -->
 
 	<!-- 引入外部properties文件 -->
-	<properties resource="db.properties" />
-	<properties resource="log4j.properties" />
+	<!-- <properties resource="db.properties" /> -->
 
 	<!--配置设置  -->
 	<settings>
@@ -38,9 +37,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</settings>
 	
 	<!--取别名  -->
-	<!-- <typeAliases>
+	  <typeAliases>
          <typeAlias type="com.ssm.model.Merchant" alias="Merchant"/>   
-	</typeAliases> -->
+	</typeAliases>  
 
 	<!--注册映射文件 -->
 	 

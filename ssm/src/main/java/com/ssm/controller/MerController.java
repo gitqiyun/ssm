@@ -57,7 +57,8 @@ public class MerController {
 		String merName = request.getParameter("merName");
 		String passWord =  request.getParameter("passWord"); 
 		Merchant merchant = merService.login(merName);
-		if (merchant != null && merchant.equals(passWord)) {
+		if (merchant != null && merchant.getPassWrod().equals(passWord)) {
+			model.addAttribute("merchant", merchant );
 			return "main";
 		} else {
 			model.addAttribute("msg", "用户名或密码错误");
