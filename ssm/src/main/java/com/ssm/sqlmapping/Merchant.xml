@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.ssm.dao.MerchantDao">
 
  	<!-- 缓存类配置 （mapper缓存属于mybatis二级缓存）-->
-    <cache type="com.ssm.redis.RedisCache" />
+  	<cache type="com.ssm.redis.RedisCache" /> 
     
 	<insert id="register" parameterType="Merchant">
 		insert into merchant(merNo,merName,passWord) 
