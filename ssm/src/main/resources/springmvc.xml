@@ -22,4 +22,19 @@
         <property name="prefix" value="jsp/" />
         <property name="suffix" value=".jsp" />
     </bean>
+    
+  <!--    自定义拦截器，只拦截controller,不是所以的请求都拦截，这点是和过滤器最大的区别 -->
+	<mvc:interceptors>
+	    <mvc:interceptor>
+		   	<!-- 用户认证拦截 -->
+		   	<mvc:mapping path="/**"/>
+		   	<bean class="com.ssm.interceptor.LoginInterceptor"></bean>
+	    </mvc:interceptor>
+	   <!--  <mvc:interceptor>
+	    	资源拦截
+	    	<mvc:mapping path="/**"/>
+	    	<bean class="com.ssm.interceptor.PermissionInterceptor"></bean>
+	    </mvc:interceptor> -->
+	</mvc:interceptors> 
+    
 </beans>

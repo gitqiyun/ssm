@@ -20,13 +20,13 @@ public class MerController {
 	@Autowired
 	private MerService merService;
 
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/register.do", method = RequestMethod.GET)
 	public String regiter(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
 
 		try {
-			String merName = request.getParameter("merName");
-			String passWord =  request.getParameter("passWord"); 
-			if (merName==null||passWord==null) {
+			String merName = request.getParameter("username");
+			String passWord =  request.getParameter("password"); 
+			if ("".equals(merName)||"".equals(passWord)) {
 				model.addAttribute("msg","请输入用户名或密码");
 				return "register";
 			}
@@ -41,6 +41,7 @@ public class MerController {
 			int a = merService.register(merchant2);
 
 			if (a == 1) {
+				model.addAttribute("msg","注册成功，请登录");
 				return "login";
 			} else {
 				return "error";
@@ -52,10 +53,11 @@ public class MerController {
 		}
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public String login(ModelMap model, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String merName = request.getParameter("merName");
-		String passWord =  request.getParameter("passWord"); 
+		
+		String merName = request.getParameter("username");
+		String passWord =  request.getParameter("password"); 
 		Merchant merchant = merService.login(merName);
 		if (merchant != null && merchant.getPassWrod().equals(passWord)) {
 			model.addAttribute("merchant", merchant );
