@@ -12,6 +12,7 @@ public class Merchant  implements Serializable{
 	private String merNo;
 	private String merName;
 	private String passWord;
+
 	public Merchant() {
 		super();
 		// TODO Auto-generated constructor stub
