@@ -17,7 +17,7 @@ public class MerServiceimp implements MerService{
 	public int register(Merchant merchant) {
 		String merNo=merchant.getMerName()+merchant.getPassWrod();
 		merchant.setMerNo(merNo); 
-		System.out.println(merchant.toString());
+		System.out.println(merchant);
 		int a=merchantDao.register(merchant);
 		return a;
 	}
