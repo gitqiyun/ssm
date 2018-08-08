@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 配置顺序要根据dtd规定，不然会报错，鼠标放在configuration上会显示 -->
+
+	<!-- 引入外部properties文件 -->
+	<!-- <properties resource="db.properties" /> -->
+
+	<!--配置设置  -->
+	<settings>
+		<!-- resultMap可以实现高级映射（使用association、collection实现一对一及一对多映射），association、collection具备延迟加载功能。 
+			需求：如果查询订单并且关联查询用户信息。如果先查询订单信息即可满足要求，当我们需要查询用户信息时再查询用户信息。把对用户信息的按需去查询就是延迟加载。 
+			延迟加载：先从单表查询、需要时再从关联表去关联查询，大大提高数据库性能，因为查询单表要比关联查询多张表速度要快。 -->
+		<!-- mybatis默认没有开启延迟加载,可以通过一下设置开启 -->
+		<!-- 延迟加载总开关 -->
+		<!-- <setting name="lazyLoadingEnabled" value="true" />
+		禁止积极主动的加载
+		<setting name="aggressiveLazyLoading" value="false" /> -->
+
+
+		<!-- Mybatis的一级缓存是指SqlSession。一级缓存的作用域是一个SqlSession。Mybatis默认开启一级缓存。 在同一个SqlSession中，执行相同的查询SQL，第一次会去查询数据库，并写到缓存中；第二次直接从缓存中取。 
+			当执行SQL时两次查询中间发生了insert、update、delete等操作，则SqlSession的缓存清空。 -->
+
+		<!-- 二级缓存是mapper级别的。Mybatis默认是没有开启二级缓存。 第一次调用mapper下的SQL去查询用户信息。查询到的信息会存到该mapper对应的二级缓存区域内。 
+			第二次调用相同namespace下的mapper映射文件中相同的SQL去查询用户信息。会去对应的二级缓存内取结果。 如果调用相同namespace下的mapper映射文件中的增删改SQL，并执行了commit操作。此时会清空该namespace下的二级缓存 -->
+		<!-- 开启二级缓存，默认时false，开启用true 这里时总开关，因二级缓存作用域为各个mapper的namesplace，所一要开启哪个就在哪个mapper下设置cache -->
+	 	 
+		 <!-- 日志开启 -->
+        <setting name="logImpl" value="LOG4J"/>
+        <!-- 二级缓存开启 -->
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="lazyLoadingEnabled" value="false"/>
+        <setting name="aggressiveLazyLoading" value="true"/>
+	
+	</settings>
+	
+	<!--取别名  -->
+	  <typeAliases>
+         <typeAlias type="com.ssm.model.Merchant" alias="Merchant"/>   
+	</typeAliases>  
+
+	<!--注册映射文件 -->
+	 
+</configuration>  
