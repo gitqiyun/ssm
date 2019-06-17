@@ -34,6 +34,7 @@ public class MerController {
 		//9
         // 10
 		//11
+		//12
 		try {
 			String merName = request.getParameter("username");
 			String passWord =  request.getParameter("password"); 
