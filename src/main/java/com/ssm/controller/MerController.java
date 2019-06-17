@@ -28,6 +28,8 @@ public class MerController {
 		//3
 		//4ci
 		//5ci
+        //6
+		//7
 		try {
 			String merName = request.getParameter("username");
 			String passWord =  request.getParameter("password"); 
