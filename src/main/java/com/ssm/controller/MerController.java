@@ -23,6 +23,7 @@ public class MerController {
 	@RequestMapping(value = "/register.do", method = RequestMethod.GET)
 	public String regiter(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
 
+        //git commit test
 		try {
 			String merName = request.getParameter("username");
 			String passWord =  request.getParameter("password"); 
