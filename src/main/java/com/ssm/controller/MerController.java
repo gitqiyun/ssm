@@ -25,7 +25,8 @@ public class MerController {
 
         //git commit test 1次
         //2次
-
+		//3
+		//4ci
 		try {
 			String merName = request.getParameter("username");
 			String passWord =  request.getParameter("password"); 
