@@ -31,6 +31,7 @@ public class MerController {
         //6
 		//7
 		//8
+		//9
 		try {
 			String merName = request.getParameter("username");
 			String passWord =  request.getParameter("password"); 
